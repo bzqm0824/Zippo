@@ -1,0 +1,84 @@
+前情回顾
+
+1. 视图
+   create [or replace] view [view_name] as [select]
+   alter view [view_name] as [select]
+   drop view [if exists] view
+
+2. 函数和存储过程
+
+  函数： 有返回值，只有in类型参数，目的是获取一个值，里面多用查找语句
+  存储过程：没有返回值，参数分为in out inout,更类似语句集合
+
+  delimiter [符号]
+  create function [f_name](args) returns [r_type]
+  begin
+    sql语句
+    return val
+  end [符号]
+  delimiter ;
+
+  delimiter [符号]
+  create procedure [p_name](args)
+  begin
+    sql语句
+  end [符号]
+  delimiter ;
+
+3.事务控制
+
+  什么是事务？  一个数据操作的完整过程
+  四大特性？  原子性  一致性  隔离性  持久性
+
+  隔离    读未提交
+         读已提交
+         可重复读
+         串行化
+
+  begin;    commit;  rollback;
+
+4. 数据库优化
+
+   * 数据库范式
+
+   * 数据库引擎
+
+   * 字段数据类型选择
+
+   * 键的设置
+
+
+练习 ： 创建数据库 dict
+       数据库中创建数据表 words 包含三个字段
+       id  word  mean
+       将dict.txt中的单词插入到这个数据库，插入结果必须
+       在98%以上为成功
+
+cookie
+
+  静态文件存储
+
+     * 存储文件所在路径 （varchar）
+
+       优点 ： 节省数据库空间
+       缺点 ： 文件并不在数据库中，如果发生变化可能导致文件丢失
+
+     * 存储文件本身 （blob）
+
+       优点 ： 文件安全
+       缺点 ： 文件在数据库中读写效率低
+
+练习：  通过程序描述登录注册过程，将其各封装为一个函数
+
+       def login(name,passwd):
+           pass
+
+       def register(name,passwd):
+           pass
+
+作业： 总结数据库的内容
+      注册一个账号  github.com
+
+
+
+
